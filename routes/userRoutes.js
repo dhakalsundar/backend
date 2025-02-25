@@ -2,7 +2,7 @@
 
 const express = require('express');
 const router = express.Router();
-const { registerUser, loginUser,editUser ,getAllUsers,getUserById} = require('../controllers/userController');
+const { registerUser, loginUser,editUser ,getAllUsers,getUserById,deleteUser} = require('../controllers/userController');
 const upload = require('../config/multerConfig'); // Import Multer config
 
 
@@ -16,6 +16,8 @@ router.post('/login', loginUser);
 // Protected rout
 // 
 // e
+
+router.delete('/delete-user/:id',deleteUser)
 router.put('/edit/:id', upload.single('profile_photo'), editUser); // 'profile_photo' is the field name in the form
 
 

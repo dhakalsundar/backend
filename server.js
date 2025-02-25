@@ -8,7 +8,7 @@ const userRoutes = require('./routes/userRoutes'); // Import user routes
 const path = require('path');
 const recipeRoutes = require('./routes/recipeRoutes');
 const contentRoutes = require('./routes/contentRoutes');
-
+const newRecipeROutes= require("./routes/newRecipeRoutes")
 // Initialize express app
 const app = express();
 
@@ -16,7 +16,7 @@ const app = express();
 app.use(cors()); // To handle cross-origin requests (if needed)
 app.use(bodyParser.json()); // Parse incoming JSON requests
 app.use('/api/recipes', recipeRoutes);
-
+app.use('/recipe',newRecipeROutes)
 // Routes
 app.use('/api/users', userRoutes); // Use user routes for user-related actions (e.g., login, register)
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
